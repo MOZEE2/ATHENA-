@@ -117,6 +117,28 @@
     </audio>
 
     <script>
+        function scrollToBottom() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+// Modifie chaque apparition de texte pour forcer le défilement
+function typeWriterEffect(element, text, delay, callback) {
+    let i = 0;
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, 50);
+            scrollToBottom(); // Force le défilement pendant l'animation
+        } else if (callback) {
+            setTimeout(callback, delay);
+        }
+    }
+    type();
+}
         function typeWriterEffect(element, text, delay, callback) {
             let i = 0;
             function type() {
