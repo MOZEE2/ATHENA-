@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyeux Anniversaire, Athéna ❤️</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
         body {
             font-family: 'Dancing Script', cursive;
             background: url('001.jpg') no-repeat center center fixed;
@@ -17,56 +19,79 @@
             min-height: 100vh;
             color: rgba(255, 255, 255, 0.9);
             text-align: center;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(8px);
+            z-index: -1;
         }
 
         .container {
             background: rgba(0, 0, 0, 0.6);
             padding: 30px;
             border-radius: 15px;
-            max-width: 600px;
+            max-width: 700px;
         }
 
         .header {
-            font-size: 2.5em;
+            font-size: 3em;
             font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
         }
 
         .subheader {
-            font-size: 1.5em;
+            font-size: 2em;
             margin-top: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
         }
 
         .message {
-            font-size: 1.2em;
+            font-size: 1.6em;
             margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            line-height: 1.5;
         }
 
         .footer {
-            font-size: 1em;
+            font-size: 1.4em;
             margin-top: 20px;
             font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
         }
 
-        #playAudio {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            background: #ff4081;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        /* Animation d'apparition */
+        .hidden {
+            opacity: 0;
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">Joyeux Anniversaire, Athéna chérie !</div>
-        <div class="subheader">Tu es la lumière de ma vie</div>
-        <div class="message">En ce jour merveilleux, je souhaite célébrer non seulement ton anniversaire, mais aussi la lumière et l'amour ❤️ que tu apportes dans ma vie chaque jour ✨.</div>
-        <div class="message">Tu es non seulement mon amour, mais aussi mon pilier 🥹, mon soutien indéfectible ☺️. Pendant ces moments d'examen où le stress et les doutes peuvent me submerger, tu es là, toujours.</div>
-        <div class="footer">Avec tout mon amour, Hadès</div>
-        <button id="playAudio">🎵 Jouer la musique</button>
+        <div class="header" id="header">Joyeux Anniversaire, Athéna chérie ! 🎉❤️</div>
+        <div class="subheader" id="subheader">Tu es la plus belle étoile de ma vie ✨</div>
+        <div class="message hidden" id="message1"></div>
+        <div class="message hidden" id="message2"></div>
+        <div class="message hidden" id="message3"></div>
+        <div class="message hidden" id="message4"></div>
+        <div class="footer hidden" id="footer">Avec tout mon amour, Hadès ❤️</div>
     </div>
 
     <audio id="audio" autoplay>
@@ -75,11 +100,53 @@
     </audio>
 
     <script>
-        document.getElementById("playAudio").addEventListener("click", function() {
-            let audio = document.getElementById("audio");
-            audio.play();
-            this.style.display = "none";
-        });
+        function typeWriterEffect(element, text, delay, callback) {
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 50);
+                } else if (callback) {
+                    setTimeout(callback, delay);
+                }
+            }
+            element.style.display = "block";
+            element.style.opacity = "1";
+            type();
+        }
+
+        function showElement(element, delay, callback) {
+            setTimeout(() => {
+                element.style.display = "block";
+                element.style.opacity = "1";
+                if (callback) callback();
+            }, delay);
+        }
+
+        window.onload = function() {
+            showElement(document.getElementById("header"), 500, () => {
+                showElement(document.getElementById("subheader"), 1000, () => {
+                    typeWriterEffect(document.getElementById("message1"), 
+                    "Athéna, en ce jour spécial, je veux te rappeler combien tu es précieuse pour moi. Chaque instant avec toi est un cadeau inestimable. ❤️", 
+                    1500, () => {
+                        typeWriterEffect(document.getElementById("message2"), 
+                        "Tu es la douceur qui apaise mes journées, le sourire qui illumine mon monde, la force qui me pousse à avancer. 🌟", 
+                        1500, () => {
+                            typeWriterEffect(document.getElementById("message3"), 
+                            "Dans chaque battement de mon cœur, il y a une pensée pour toi. Dans chaque regard, il y a ton reflet. Dans chaque souffle, il y a ton amour. 💖", 
+                            1500, () => {
+                                typeWriterEffect(document.getElementById("message4"), 
+                                "Je t’aime plus que les mots ne pourront jamais l’exprimer. Aujourd’hui et pour toujours, sache que tu es mon bonheur absolu. 🥰", 
+                                1500, () => {
+                                    showElement(document.getElementById("footer"), 1000);
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        };
     </script>
 </body>
 </html>
