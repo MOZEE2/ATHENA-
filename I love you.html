@@ -3,47 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joyeux Anniversaire</title>
+    <title>Joyeux Anniversaire, Athéna ❤️</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
         body {
-            font-family: 'Courier New', monospace;
+            font-family: 'Quicksand', sans-serif;
             background: url('001.jpg') no-repeat center center fixed;
             background-size: cover;
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            color: rgba(255, 255, 255, 0.9);
         }
+
+        /* Effet de flou sur le fond */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
         .container {
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 600px;
+            animation: fadeIn 1.5s ease-in-out;
         }
+
         .header {
             font-size: 2.5em;
-            margin-top: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
             border-radius: 10px;
+            animation: slideDown 1.5s ease-in-out;
         }
+
         .subheader {
             font-size: 1.5em;
             margin-top: 10px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
         }
+
         .message {
-            margin-top: 20px;
             font-size: 1.2em;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .footer {
-            font-size: 0.8em;
             margin-top: 20px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .footer {
+            font-size: 1em;
+            margin-top: 20px;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 10px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -52,14 +110,14 @@
         <div class="header">Joyeux Anniversaire, Athéna chérie !</div>
         <div class="subheader">Tu es la lumière de ma vie</div>
         <div class="message">
-            <p>En ce jour merveilleux, je souhaite célébrer non seulement ton anniversaire, mais aussi la lumière et l'amour❤️ que tu apportes dans ma vie chaque jour✨.</p>
-            <p>Tu es non seulement mon amour, mais aussi mon pilier🥹, mon soutien indéfectible☺️. Pendant ces moments d'examen où le stress et les doutes peuvent me submerger, tu es là, toujours.</p>
-            <p>Chaque instant passé avec toi est une bénédiction. Tu as cette capacité incroyable à transformer les jours ordinaires en moments inoubliables. Ta gentillesse, ta générosité, et ton affection sont inestimables.</p>
+            <p>En ce jour merveilleux, je te souhaite de célébrer non seulement ton anniversaire, mais aussi la lumière et l'amour ❤️ que tu apportes dans ma vie chaque jour ✨.</p>
+            <p>Tu es non seulement mon amour, mais aussi mon pilier 🥹, mon soutien indéfectible ☺️. Pendant ces moments d'examen où le stress et les doutes peuvent me submerger, tu es là, toujours.</p>
+            <p>Chaque instant passé avec toi est une bénédiction. Tu as cette capacité incroyable à transformer les jours ordinaires en moments inoubliables. Ta gentillesse, ta générosité et ton affection sont inestimables.</p>
             <p>En ce jour spécial, je veux que tu saches combien je t'aime et combien tu es précieuse pour moi. Mon cœur déborde de gratitude et d'affection pour la merveilleuse personne que tu es. Je t'aime infiniment.</p>
         </div>
         <div class="message">
             <p>Mon Atome Chéri,</p>
-            <p>Au cœur de notre relation, nous sommes comme des électrons 💫 enchevêtrés, s'attirant irrésistiblement dans un entrelacement quantique❤️‍🔥. Ton amour, une force aussi fondamentale que la gravité, m'ancre et me donne un but.</p>
+            <p>Au cœur de notre relation, nous sommes comme des électrons 💫 enchevêtrés, s'attirant irrésistiblement dans un entrelacement quantique ❤️‍🔥. Ton amour, une force aussi fondamentale que la gravité, m'ancre et me donne un but.</p>
             <p>Les liaisons covalentes de nos âmes se renforcent, partageant des électrons de souvenirs précieux. Comme une protéine qui se replie parfaitement, ton affection s'adapte et se module aux besoins de notre relation.</p>
             <p>Puisses-tu ressentir les vibrations harmonieuses de ce petit site d'amour en ton honneur 🌟🌟, une mélodie délicate d'affinité moléculaire.</p>
         </div>
@@ -67,6 +125,7 @@
             Avec tout mon amour, Hadès 
         </div>
     </div>
+    
     <audio autoplay loop>
         <source src="ANA.mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
