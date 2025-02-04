@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyeux Anniversaire, Athéna ❤️</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
-
         body {
-            font-family: 'Quicksand', sans-serif;
+            font-family: Arial, sans-serif;
             background: url('001.jpg') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
@@ -19,6 +17,7 @@
             min-height: 100vh;
             overflow: hidden;
             color: rgba(255, 255, 255, 0.9);
+            position: relative;
         }
 
         body::before {
@@ -43,6 +42,7 @@
 
         .header, .subheader, .message, .footer {
             opacity: 0;
+            display: none;
         }
 
         .header {
@@ -86,6 +86,19 @@
         @keyframes blink {
             50% { opacity: 0; }
         }
+
+        /* Bouton de lecture audio */
+        #playAudio {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -95,9 +108,10 @@
         <div class="message" id="message1"></div>
         <div class="message" id="message2"></div>
         <div class="footer" id="footer">Avec tout mon amour, Hadès</div>
+        <button id="playAudio">🎵 Jouer la musique</button>
     </div>
     
-    <audio autoplay loop>
+    <audio id="audio">
         <source src="ANA.mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
     </audio>
@@ -119,6 +133,7 @@
 
         function fadeIn(element, delay, callback) {
             setTimeout(() => {
+                element.style.display = "block";
                 element.style.opacity = "1";
                 if (callback) callback();
             }, delay);
@@ -139,6 +154,12 @@
                 });
             });
         };
+
+        document.getElementById("playAudio").addEventListener("click", function() {
+            let audio = document.getElementById("audio");
+            audio.play();
+            this.style.display = "none"; // Cache le bouton après lecture
+        });
     </script>
 </body>
 </html>
