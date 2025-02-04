@@ -3,49 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOYEUX ANNIVERSAIRE</title>
+    <title>Mon Amour, Entre ici ❤️</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Dancing Script', cursive;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #e0e0e0;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
             margin: 0;
-        }
-        .container {
             text-align: center;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
-            max-width: 400px;
-            width: 100%;
         }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 2em;
+            text-shadow: 2px 2px 8px rgba(214, 51, 132, 0.3);
+            animation: heartbeat 2s infinite alternate;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 2px solid #d63384;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
         .btn-custom {
-            background-color: #6c757d;
+            background: #d63384;
             color: #fff;
             border: none;
-        }
-        .btn-custom:hover {
-            background-color: #5a6268;
-        }
-        h1 {
-            color: #343a40;
-        }
-        input.form-control {
+            font-size: 1.2em;
             border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            background: #b0276a;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ecris en majuscule le surnom que je te donne</h1>
+        <h1>Écris en MAJUSCULE ton <strong>Surnom</strong> 💖</h1>
         <input type="password" id="password" class="form-control mb-3" placeholder="Mot de passe">
-        <button class="btn btn-custom btn-block" onclick="checkPassword()">Soumettre</button>
+        <button class="btn btn-custom btn-block" onclick="checkPassword()">Entrer 🔐</button>
     </div>
 
     <!-- Bootstrap JS and dependencies -->
@@ -58,9 +88,9 @@
             const correctPassword = 'ATHENA';
 
             if (password === correctPassword) {
-                window.location.href = 'I love you.html';  // Remplace par le nom de ta page locale
+                window.location.href = 'I love you.html';  // Remplace par le nom de ta page
             } else {
-                alert('Mot de passe incorrect. Veuillez réessayer.');
+                alert("Oups ! Si tu n'es pas ma princesse, tu n'es pas autorisé(e) ici 💔");
             }
         }
     </script>
