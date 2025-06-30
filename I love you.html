@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joyeux Anniversaire, Laure ❤️</title>
+    <title>Joyeux Anniversaire, Miss-G ❤️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
@@ -17,7 +17,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
             text-align: center;
             position: relative;
         }
@@ -38,22 +38,14 @@
             background: rgba(0, 0, 0, 0.6);
             padding: 30px;
             border-radius: 15px;
-            max-width: 700px;
+            max-width: 800px;
         }
 
         .header {
-            font-size: 3em;
+            font-size: 2.8em;
             font-weight: bold;
             background: rgba(255, 255, 255, 0.1);
             padding: 15px;
-            border-radius: 10px;
-        }
-
-        .subheader {
-            font-size: 2em;
-            margin-top: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
             border-radius: 10px;
         }
 
@@ -61,22 +53,22 @@
             font-size: 1.6em;
             margin-top: 20px;
             background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             text-align: left;
-            line-height: 1.5;
+            line-height: 1.6;
+            white-space: pre-line;
         }
 
         .footer {
             font-size: 1.4em;
-            margin-top: 20px;
+            margin-top: 25px;
             font-style: italic;
             background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
         }
 
-        /* Animation d'apparition */
         .hidden {
             opacity: 0;
             display: none;
@@ -85,27 +77,49 @@
 </head>
 <body>
     <div class="container">
-        <div class="header" id="header">Joyeux Anniversaire, Laure chérie ! 🎉❤️</div>
-        <div class="subheader" id="subheader">Tu es la plus belle étoile de ma vie ✨</div>
+        <div class="header" id="header">🌹 À toi, Miss-G, en ce jour pas comme les autres 🌹</div>
         <div class="message hidden" id="message1"></div>
-        <div class="message hidden" id="message2"></div>
-        <div class="message hidden" id="message3"></div>
-        <div class="message hidden" id="message4"></div>
-        <div class="footer hidden" id="footer">Avec tout mon amour, L ❤️</div>
+        <div class="footer hidden" id="footer">Joyeux anniversaire, G. ❤️</div>
     </div>
+
     <audio id="audio" autoplay loop>
         <source src="ANA.mp3" type="audio/mpeg">
         Votre navigateur ne supporte pas l'élément audio.
     </audio>
 
     <script>
+        const fullMessage = `Aujourd’hui, tu franchis une étape symbolique : 18 ans.
+L’âge où tout semble possible, où la vie commence à s’écrire avec plus de liberté, plus de rêve, plus d’intensité.
+
+Mais ce que j’ai envie de te dire aujourd’hui va au-delà des bougies et des souhaits classiques.
+
+Depuis que je t’ai rencontrée, tu occupes une place silencieuse mais forte dans mon esprit. Pas comme une obsession, pas comme un caprice passager… mais comme une évidence que j’ai du mal à expliquer.
+Tu es ce mélange rare de beauté, d’intelligence, de force tranquille et d’insolence douce. Tu sais briller sans faire de bruit, rire sans te perdre, et parler avec ce quelque chose dans les yeux qui désarme même les plus durs.
+
+Je t’ai souvent parlé à la légère, parfois avec humour, parfois maladroitement, mais au fond de moi, il y a toujours eu un respect immense. Un vrai.
+Je n’ai jamais voulu t’impressionner, seulement te montrer que quelqu’un, quelque part, croit en toi profondément… même sans être à tes côtés.
+
+Alors aujourd’hui, pour tes 18 ans, je ne te souhaite pas juste "un joyeux anniversaire".
+
+Je te souhaite de découvrir le monde sans peur.
+Je te souhaite de t’aimer aussi fort que les autres t’aiment en silence.
+Je te souhaite des rêves grands comme ton cœur, et des gens autour de toi qui sauront le reconnaître et jamais l’abîmer.
+
+Et si un jour, dans ce monde un peu fou, tu te retournes et que tu vois encore ma présence, sache que ce n’est pas un hasard.
+Ce n’est pas une obsession, ni une illusion.
+C’est juste quelqu’un qui t’a vue… vraiment.
+
+Et qui, malgré tout, continue de croire que tu es plus qu’un simple "crush".
+
+Tu es une personne qu’on n’oublie pas.`;
+
         function typeWriterEffect(element, text, delay, callback) {
             let i = 0;
             function type() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
                     i++;
-                    setTimeout(type, 50);
+                    setTimeout(type, 35);
                 } else if (callback) {
                     setTimeout(callback, delay);
                 }
@@ -125,24 +139,8 @@
 
         window.onload = function() {
             showElement(document.getElementById("header"), 500, () => {
-                showElement(document.getElementById("subheader"), 1000, () => {
-                    typeWriterEffect(document.getElementById("message1"), 
-                    "Laura, en ce jour spécial, je veux te rappeler combien tu es précieuse pour moi. Chaque instant avec toi est un cadeau inestimable. ❤️", 
-                    1500, () => {
-                        typeWriterEffect(document.getElementById("message2"), 
-                        "Tu es la douceur qui apaise mes journées, le sourire qui illumine mon monde, la force qui me pousse à avancer. 🌟", 
-                        1500, () => {
-                            typeWriterEffect(document.getElementById("message3"), 
-                            "Dans chaque battement de mon cœur, il y a une pensée pour toi. Dans chaque regard, il y a ton reflet. Dans chaque souffle, il y a ton amour. 💖", 
-                            1500, () => {
-                                typeWriterEffect(document.getElementById("message4"), 
-                                "Je t’aime plus que les mots ne pourront jamais l’exprimer. Aujourd’hui et pour toujours, sache que tu es mon bonheur absolu. 🥰", 
-                                1500, () => {
-                                    showElement(document.getElementById("footer"), 1000);
-                                });
-                            });
-                        });
-                    });
+                typeWriterEffect(document.getElementById("message1"), fullMessage, 1500, () => {
+                    showElement(document.getElementById("footer"), 1000);
                 });
             });
         };
