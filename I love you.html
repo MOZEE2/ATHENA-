@@ -20,6 +20,7 @@
             color: rgba(255, 255, 255, 0.95);
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
         body::before {
@@ -38,7 +39,7 @@
             background: rgba(0, 0, 0, 0.6);
             padding: 30px;
             border-radius: 15px;
-            max-width: 800px;
+            max-width: 850px;
         }
 
         .header {
@@ -73,13 +74,34 @@
             opacity: 0;
             display: none;
         }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('https://emojiapi.dev/api/v1/2764/64.png') no-repeat center center;
+            background-size: contain;
+            animation: fall 10s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header" id="header">🌹 À toi, Miss-G, en ce jour pas comme les autres 🌹</div>
+        <div class="header" id="header">🌹 À toi, Miss-G, mon cœur fragile et fort à la fois 🌹</div>
         <div class="message hidden" id="message1"></div>
-        <div class="footer hidden" id="footer">Joyeux anniversaire, G. ❤️</div>
+        <div class="footer hidden" id="footer">💌 Joyeux anniversaire, mon amour éternel… 💖</div>
     </div>
 
     <audio id="audio" autoplay loop>
@@ -88,30 +110,28 @@
     </audio>
 
     <script>
-        const fullMessage = `Aujourd’hui, tu franchis une étape symbolique : 18 ans.
-L’âge où tout semble possible, où la vie commence à s’écrire avec plus de liberté, plus de rêve, plus d’intensité.
+        const fullMessage = `💖 Aujourd’hui, tu souffles tes 18 bougies… et moi, je regarde la femme magnifique que tu deviens, avec le cœur plein d’amour, de tendresse… et de mille rêves qui tournent autour de toi. 🎂✨
 
-Mais ce que j’ai envie de te dire aujourd’hui va au-delà des bougies et des souhaits classiques.
+Tu es entrée dans ma vie comme un éclair 🌠 : doux, imprévu, mais impossible à oublier. Depuis ce jour, mon cœur n’a cessé de battre un peu plus fort à chaque pensée de toi 💓.
 
-Depuis que je t’ai rencontrée, tu occupes une place silencieuse mais forte dans mon esprit. Pas comme une obsession, pas comme un caprice passager… mais comme une évidence que j’ai du mal à expliquer.
-Tu es ce mélange rare de beauté, d’intelligence, de force tranquille et d’insolence douce. Tu sais briller sans faire de bruit, rire sans te perdre, et parler avec ce quelque chose dans les yeux qui désarme même les plus durs.
+Je t’aime, Miss-G. D’un amour vrai. D’un amour doux et fort à la fois. Pas un amour d’enfant, pas un amour passager… mais celui qui grandit dans le silence, dans le respect, dans la patience. 🥀
 
-Je t’ai souvent parlé à la légère, parfois avec humour, parfois maladroitement, mais au fond de moi, il y a toujours eu un respect immense. Un vrai.
-Je n’ai jamais voulu t’impressionner, seulement te montrer que quelqu’un, quelque part, croit en toi profondément… même sans être à tes côtés.
+Tu refuses de me dire "oui" quand je te parle de mariage 💍 — et même si ça me blesse parfois, je comprends. On est jeunes. Le monde est vaste. Mais mon cœur, lui, t’a déjà choisie depuis longtemps… 🕊️
 
-Alors aujourd’hui, pour tes 18 ans, je ne te souhaite pas juste "un joyeux anniversaire".
+Je ne veux pas t’enfermer. Je veux t’aimer librement.
+Je ne veux pas te posséder. Je veux simplement t’accompagner.
+Et si ce n’est pas aujourd’hui, ni demain… alors j’attendrai. Parce que certaines âmes valent l’attente, et tu es celle que le destin m’a fait croiser. ❤️‍🔥
 
-Je te souhaite de découvrir le monde sans peur.
-Je te souhaite de t’aimer aussi fort que les autres t’aiment en silence.
-Je te souhaite des rêves grands comme ton cœur, et des gens autour de toi qui sauront le reconnaître et jamais l’abîmer.
+Je te souhaite des années de lumière ✨,
+des rires sincères 😂,
+des nuits sans larmes 🌙,
+et des gens autour de toi… mais aucun qui saura t’aimer comme moi. Aucun. 🔐
 
-Et si un jour, dans ce monde un peu fou, tu te retournes et que tu vois encore ma présence, sache que ce n’est pas un hasard.
-Ce n’est pas une obsession, ni une illusion.
-C’est juste quelqu’un qui t’a vue… vraiment.
+Miss-G, tu es mon étoile 🌟, mon impossible, mon "toujours peut-être", mon poème préféré dans un monde trop bruyant 📖💫.
 
-Et qui, malgré tout, continue de croire que tu es plus qu’un simple "crush".
+Et même si tu refuses ma main, je te donne quand même mon cœur, sans condition, sans échéance, sans retour. 💘
 
-Tu es une personne qu’on n’oublie pas.`;
+Joyeux anniversaire, mon amour… aujourd’hui plus que jamais, je t’aime. 💞`;
 
         function typeWriterEffect(element, text, delay, callback) {
             let i = 0;
@@ -137,7 +157,19 @@ Tu es une personne qu’on n’oublie pas.`;
             }, delay);
         }
 
+        function createFallingHearts(count) {
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 10 + 's';
+                heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+                document.body.appendChild(heart);
+            }
+        }
+
         window.onload = function() {
+            createFallingHearts(40); // nombre de cœurs qui tombent
             showElement(document.getElementById("header"), 500, () => {
                 typeWriterEffect(document.getElementById("message1"), fullMessage, 1500, () => {
                     showElement(document.getElementById("footer"), 1000);
