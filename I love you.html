@@ -20,7 +20,7 @@
             color: rgba(255, 255, 255, 0.95);
             text-align: center;
             position: relative;
-            overflow: hidden;
+            transition: background-image 1s ease-in-out;
         }
 
         body::before {
@@ -33,13 +33,14 @@
             background: inherit;
             filter: blur(8px);
             z-index: -1;
+            transition: background-image 1s ease-in-out;
         }
 
         .container {
             background: rgba(0, 0, 0, 0.6);
             padding: 30px;
             border-radius: 15px;
-            max-width: 850px;
+            max-width: 800px;
         }
 
         .header {
@@ -74,34 +75,13 @@
             opacity: 0;
             display: none;
         }
-
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: url('https://emojiapi.dev/api/v1/2764/64.png') no-repeat center center;
-            background-size: contain;
-            animation: fall 10s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header" id="header">🌹 À toi, Miss-G, mon cœur fragile et fort à la fois 🌹</div>
+        <div class="header" id="header">🌹 À toi, Miss-G, en ce jour pas comme les autres 🌹</div>
         <div class="message hidden" id="message1"></div>
-        <div class="footer hidden" id="footer">💌 Joyeux anniversaire, mon amour éternel… 💖</div>
+        <div class="footer hidden" id="footer">Joyeux anniversaire, mon amour ❤️</div>
     </div>
 
     <audio id="audio" autoplay loop>
@@ -157,19 +137,18 @@ Joyeux anniversaire, mon amour… aujourd’hui plus que jamais, je t’aime. �
             }, delay);
         }
 
-        function createFallingHearts(count) {
-            for (let i = 0; i < count; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDelay = Math.random() * 10 + 's';
-                heart.style.animationDuration = 5 + Math.random() * 5 + 's';
-                document.body.appendChild(heart);
-            }
-        }
+        // Background rotation logic
+        const images = ['001.jpg', '002.jpg', '003.jpg'];
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            document.body.style.backgroundImage = `url('${images[index]}')`;
+            document.body.style.transition = "background-image 1s ease-in-out";
+            document.body.querySelector("body::before")?.style?.setProperty('background-image', `url('${images[index]}')`);
+        }, 11000); // change every 11 seconds
 
         window.onload = function() {
-            createFallingHearts(40); // nombre de cœurs qui tombent
             showElement(document.getElementById("header"), 500, () => {
                 typeWriterEffect(document.getElementById("message1"), fullMessage, 1500, () => {
                     showElement(document.getElementById("footer"), 1000);
